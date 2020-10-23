@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Scrabble AI</title>
+
+  <style>
+    body {
+      padding: 10;
+      margin: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="file" id="files" name="files" />
+
+  <output id="result">Output here.</output>
+
+  <script type="text/javascript">
+    var words = null;
+    function handleFileSelect(evt) {
+      let lastFile = evt.target.files[0];
+      let reader = new FileReader();
+      reader.onload = function() {
+        words = reader.result.split('\n');
+      };
+      reader.readAsText(lastFile);
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  </script>
+  <script src="./p5/p5.js"></script>
+  <script src="sketch.js"></script>
+</body>
+
+</html>
